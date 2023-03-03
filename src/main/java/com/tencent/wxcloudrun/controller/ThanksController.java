@@ -26,6 +26,7 @@ public class ThanksController {
     @GetMapping("getcontent")
     @ResponseBody
     public Result getContentByName(String name){
+        System.out.println("name:" + name);
         if (name.equals("")) return new Result(false, "传入姓名为空！", null);
         String result = "";
         result = thanksService.getLetterByPosition(thanksService.getContentByName(name));
