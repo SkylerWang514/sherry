@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -44,7 +45,6 @@ public class ThanksServiceImpl implements ThanksService {
         stringList.add("项目统筹");
         stringList.add("舞蹈编导");
         stringList.add("主演");
-        stringList.add("排练统筹");
         stringList.add("撰稿");
         stringList.add("宣传");
         stringList.add("灯光");
@@ -52,8 +52,9 @@ public class ThanksServiceImpl implements ThanksService {
         stringList.add("观众");
         if (stringList.contains(position)){
             String[] lettersList;
-            String split = "。";
+            String split = "&";
             lettersList = lettersMapper.getLettersByPosition(position).getContent().split(split);
+            System.out.println(Arrays.toString(lettersList));
             int number = (int) (Math.random() * (lettersList.length));
             return lettersList[number];
         }
